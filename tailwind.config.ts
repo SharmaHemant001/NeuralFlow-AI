@@ -9,8 +9,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        bg: "var(--color-bg)",
+        surface: "var(--color-surface)",
+        primary: "var(--color-primary)",
+        accent: "var(--color-accent)",
+        text: "var(--color-text)",
+        muted: "var(--color-muted)",
+        border: "var(--color-border)",
+      },
+      fontFamily: {
+        sans: ["var(--font-sans)", "sans-serif"],
+        mono: ["var(--font-mono)", "monospace"],
+      },
+      transitionTimingFunction: {
+        "out-expo": "cubic-bezier(0.16, 1, 0.3, 1)",
       },
     },
   },

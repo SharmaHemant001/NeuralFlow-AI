@@ -3,25 +3,190 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Color Palette - IIT Bhubaneswar Frontend Battle 3.0 */
+  --color-bg: #080C14;               /* Oceanic Noir */
+  --color-surface: #101726;          /* Nocturnal Expedition */
+  --color-primary: #FFC801;          /* Forsythia */
+  --color-accent: #FF9933;           /* Deep Saffron */
+  --color-text: #F3F6F9;             /* Arctic Powder */
+  --color-muted: #94B3A6;            /* Mystic Mint */
+  --color-border: #1E293B;           /* Sleek low contrast border */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* Custom Selection */
+::selection {
+  background-color: rgba(255, 200, 1, 0.2);
+  color: var(--color-text);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted);
+}
+
+/* Keyframes */
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes flowDash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+@keyframes flowSingleDot {
+  0% {
+    stroke-dashoffset: 420;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes badgeFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 200, 1, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 200, 1, 0.4), 0 0 40px rgba(255, 153, 51, 0.15);
+  }
+}
+
+@keyframes priceFade {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.97) translateY(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Entry Sequence Classes */
+.animate-entry {
+  opacity: 0;
+  animation: fadeSlideUp 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-entry-delay-1 {
+  animation-delay: 60ms;
+}
+
+.animate-entry-delay-2 {
+  animation-delay: 120ms;
+}
+
+.animate-entry-delay-3 {
+  animation-delay: 180ms;
+}
+
+/* Glow Effect utility */
+.glow-primary {
+  animation: glowPulse 3s infinite ease-in-out;
+}
+
+/* Scroll Reveal classes */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  will-change: transform, opacity;
+  transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Dashboard Mockup specific animations */
+.dash-flow-line {
+  stroke-dasharray: 8 4;
+  animation: flowDash 1.2s linear infinite;
+}
+
+.dash-flow-dot {
+  stroke-dasharray: 6 420;
+  animation: flowSingleDot 4s linear infinite;
+}
+
+.animate-badge-float {
+  animation: badgeFloat 4s ease-in-out infinite;
+}
+.animate-badge-float-delayed {
+  animation: badgeFloat 4.5s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+/* Price change animations */
+.animate-price-change {
+  animation: priceFade 150ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Reduced Motion Settings */
+@media (prefers-reduced-motion: reduce) {
+  .animate-entry,
+  .reveal-on-scroll,
+  .dash-flow-line,
+  .dash-flow-dot,
+  .animate-badge-float,
+  .animate-badge-float-delayed,
+  .animate-price-change,
+  .glow-primary {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
