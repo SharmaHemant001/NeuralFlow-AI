@@ -34,6 +34,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://neuralflow.ai",
   },
+  authors: [{ name: "NeuralFlow AI Team", url: "https://neuralflow.ai" }],
+  creator: "NeuralFlow AI Team",
+  publisher: "NeuralFlow AI Inc.",
   openGraph: {
     title: "NeuralFlow AI | Intelligent Data Automation Platform",
     description: "NeuralFlow AI automates your entire data pipeline with enterprise-grade AI. Real-time processing, multi-currency pricing, zero-config deployment.",

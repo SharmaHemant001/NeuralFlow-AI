@@ -2,15 +2,45 @@
 
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 export const Hero = React.memo(function Hero() {
   const [isDemoOpen, setIsDemoOpen] = useState(false);
+  const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!isDemoOpen) return;
+
+    // Focus close button on open
+    const closeButton = modalRef.current?.querySelector("button");
+    closeButton?.focus();
+
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setIsDemoOpen(false);
+      if (e.key === "Escape") {
+        setIsDemoOpen(false);
+      } else if (e.key === "Tab") {
+        // Simple focus trap
+        const focusables = modalRef.current?.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        ) as NodeListOf<HTMLElement>;
+
+        if (focusables && focusables.length > 0) {
+          const firstFocusable = focusables[0];
+          const lastFocusable = focusables[focusables.length - 1];
+
+          if (e.shiftKey) {
+            if (document.activeElement === firstFocusable) {
+              e.preventDefault();
+              lastFocusable.focus();
+            }
+          } else {
+            if (document.activeElement === lastFocusable) {
+              e.preventDefault();
+              firstFocusable.focus();
+            }
+          }
+        }
+      }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
@@ -30,6 +60,7 @@ export const Hero = React.memo(function Hero() {
   };
   return (
     <section
+      id="hero"
       className="relative flex min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-5rem)] w-full items-center justify-center overflow-hidden bg-bg px-4 py-16 sm:px-6 lg:px-8 font-sans"
       aria-label="Introduction to NeuralFlow AI"
     >
@@ -261,6 +292,7 @@ export const Hero = React.memo(function Hero() {
       {/* Demo Modal */}
       {isDemoOpen && (
         <div
+          ref={modalRef}
           className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-bg/85 backdrop-blur-md animate-price-change"
           role="dialog"
           aria-modal="true"

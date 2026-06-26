@@ -20,7 +20,7 @@ export const Navbar = React.memo(function Navbar() {
   }, []);
 
   useEffect(() => {
-    const sections = ["features", "pricing", "docs", "blog"];
+    const sections = ["hero", "features", "pricing"];
     const observerOptions = {
       root: null,
       rootMargin: "-45% 0px -45% 0px",
@@ -82,7 +82,11 @@ export const Navbar = React.memo(function Navbar() {
           <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
             <ul className="flex items-center gap-8">
               {navLinks.map((link) => {
-                const isActive = activeSection === link.href.slice(1);
+                const isHash = link.href.startsWith("#") || link.href.startsWith("/#");
+                const hashValue = link.href.includes("#") ? link.href.split("#")[1] : "";
+                const isActive =
+                  pathname === link.href ||
+                  (pathname === "/" && isHash && activeSection === hashValue);
                 return (
                   <li key={link.label}>
                     <a
@@ -166,7 +170,11 @@ export const Navbar = React.memo(function Navbar() {
         <nav className="h-full px-6 py-8" aria-label="Mobile navigation">
           <ul className="flex flex-col gap-6">
             {navLinks.map((link) => {
-              const isActive = activeSection === link.href.slice(1);
+              const isHash = link.href.startsWith("#") || link.href.startsWith("/#");
+              const hashValue = link.href.includes("#") ? link.href.split("#")[1] : "";
+              const isActive =
+                pathname === link.href ||
+                (pathname === "/" && isHash && activeSection === hashValue);
               return (
                 <li key={link.label}>
                   <a

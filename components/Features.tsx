@@ -194,14 +194,12 @@ export const Features = React.memo(function Features() {
                     </svg>
                   </button>
 
-                  <div
-                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                      isActive ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-                    }`}
-                  >
-                    <p className="pl-14 pr-4 py-2 text-sm sm:text-base text-muted leading-relaxed">
-                      {feature.description}
-                    </p>
+                  <div className={`accordion-content ${isActive ? "active" : ""}`}>
+                    <div className="accordion-inner">
+                      <p className="pl-14 pr-4 py-2 text-sm sm:text-base text-muted leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
                   </div>
                 </article>
               );

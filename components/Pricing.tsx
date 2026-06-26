@@ -42,13 +42,15 @@ export const Pricing = React.memo(function Pricing() {
             <label className="relative inline-flex items-center cursor-pointer select-none">
               <input
                 type="checkbox"
+                role="switch"
+                aria-checked={isAnnual}
                 checked={isAnnual}
                 onChange={handleBillingToggle}
                 className="sr-only peer"
                 aria-label="Toggle annual billing with 20% discount"
               />
               {/* Toggle track */}
-              <div className="w-11 h-6 bg-bg border border-border/80 rounded-full transition-all duration-300 peer-checked:bg-primary/20 peer-checked:border-primary/40"></div>
+              <div className="w-11 h-6 bg-bg border border-border/80 rounded-full transition-all duration-300 peer-checked:bg-primary/20 peer-checked:border-primary/40 peer-focus-visible:ring-2 peer-focus-visible:ring-primary peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-bg"></div>
               {/* Toggle slider circle */}
               <div className="absolute top-[4px] left-[4px] bg-muted peer-checked:bg-primary rounded-full h-4 w-4 transition-all duration-300 ease-out-expo peer-checked:translate-x-5 pointer-events-none"></div>
             </label>
@@ -69,7 +71,7 @@ export const Pricing = React.memo(function Pricing() {
               id="currency-select"
               value={currency}
               onChange={handleCurrencyChange}
-              className="appearance-none bg-[#101726] border border-[#FFC801] text-[#F3F6F9] text-sm rounded-full block w-32 px-4 py-2 pr-8 focus:border-[#FFC801] focus:ring-1 focus:ring-[#FFC801] focus:outline-none cursor-pointer transition-hover font-sans"
+              className="appearance-none bg-[#101726] border border-[#FFC801] text-[#F3F6F9] text-sm rounded-full block w-32 px-4 py-2 pr-8 focus:border-[#FFC801] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg cursor-pointer transition-hover font-sans"
             >
               <option value="USD" className="bg-[#101726] text-[#F3F6F9]">USD ($)</option>
               <option value="INR" className="bg-[#101726] text-[#F3F6F9]">INR (₹)</option>
