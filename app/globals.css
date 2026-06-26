@@ -189,6 +189,22 @@ body {
   overflow: hidden;
 }
 
+/* Autofill WebKit overrides to enforce premium theme colors */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #F3F6F9 !important;
+  -webkit-box-shadow: 0 0 0px 1000px #101726 inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+  caret-color: #FFC801 !important;
+}
+
 /* Reduced Motion Settings */
 @media (prefers-reduced-motion: reduce) {
   .animate-entry,

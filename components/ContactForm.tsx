@@ -92,7 +92,7 @@ export function ContactForm() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Enter your name"
-                  className="mt-2 block w-full rounded-lg bg-bg/85 border border-border px-4 py-3 text-text text-sm placeholder:text-muted/60 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-hover"
+                  className="mt-2 block w-full rounded-lg bg-[#101726] border border-border px-4 py-3 text-[#F3F6F9] text-sm placeholder:text-[#94A3B8] caret-[#FFC801] focus:border-[#FFC801] focus:ring-2 focus:ring-[#FFC801]/30 focus:outline-none transition-hover"
                 />
               </div>
 
@@ -108,7 +108,7 @@ export function ContactForm() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="you@company.com"
-                  className="mt-2 block w-full rounded-lg bg-bg/85 border border-border px-4 py-3 text-text text-sm placeholder:text-muted/60 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-hover"
+                  className="mt-2 block w-full rounded-lg bg-[#101726] border border-border px-4 py-3 text-[#F3F6F9] text-sm placeholder:text-[#94A3B8] caret-[#FFC801] focus:border-[#FFC801] focus:ring-2 focus:ring-[#FFC801]/30 focus:outline-none transition-hover"
                 />
               </div>
 
@@ -123,7 +123,7 @@ export function ContactForm() {
                   value={formData.company}
                   onChange={handleChange}
                   placeholder="e.g. Acme Corp"
-                  className="mt-2 block w-full rounded-lg bg-bg/85 border border-border px-4 py-3 text-text text-sm placeholder:text-muted/60 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-hover"
+                  className="mt-2 block w-full rounded-lg bg-[#101726] border border-border px-4 py-3 text-[#F3F6F9] text-sm placeholder:text-[#94A3B8] caret-[#FFC801] focus:border-[#FFC801] focus:ring-2 focus:ring-[#FFC801]/30 focus:outline-none transition-hover"
                 />
               </div>
 
@@ -137,7 +137,7 @@ export function ContactForm() {
                     name="plan"
                     value={formData.plan}
                     onChange={handleChange}
-                    className="appearance-none block w-full rounded-lg bg-bg/85 border border-border px-4 py-3 pr-10 text-text text-sm focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-hover cursor-pointer"
+                    className="appearance-none block w-full rounded-lg bg-[#101726] border border-border px-4 py-3 pr-10 text-[#F3F6F9] text-sm focus:border-[#FFC801] focus:ring-2 focus:ring-[#FFC801]/30 focus:outline-none transition-hover cursor-pointer"
                   >
                     <option value="starter" className="bg-[#101726]">Starter Plan - $29/mo</option>
                     <option value="pro" className="bg-[#101726]">Pro Plan - $79/mo (Recommended)</option>
@@ -163,7 +163,7 @@ export function ContactForm() {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Tell us about your pipeline scale or requirements..."
-                  className="mt-2 block w-full rounded-lg bg-bg/85 border border-border px-4 py-3 text-text text-sm placeholder:text-muted/60 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-hover resize-none"
+                  className="mt-2 block w-full rounded-lg bg-[#101726] border border-border px-4 py-3 text-[#F3F6F9] text-sm placeholder:text-[#94A3B8] caret-[#FFC801] focus:border-[#FFC801] focus:ring-2 focus:ring-[#FFC801]/30 focus:outline-none transition-hover resize-none"
                 />
               </div>
 
