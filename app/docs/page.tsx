@@ -1,8 +1,14 @@
 // FILE: app/docs/page.tsx
 
 import React from "react";
+import { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "Developer Documentation | NeuralFlow AI",
+  description: "Learn how to build, deploy, and scale streaming pipelines and serverless AI orchestrations with NeuralFlow.",
+};
 
 export default function DocsPage() {
   return (

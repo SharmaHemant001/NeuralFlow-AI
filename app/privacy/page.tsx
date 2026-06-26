@@ -1,8 +1,14 @@
 // FILE: app/privacy/page.tsx
 
 import React from "react";
+import { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | NeuralFlow AI",
+  description: "Read our privacy guidelines, SOC2 security compliance, and data ingestion protection policies.",
+};
 
 export default function PrivacyPage() {
   return (

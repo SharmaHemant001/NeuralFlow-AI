@@ -1,8 +1,14 @@
 // FILE: app/blog/page.tsx
 
 import React from "react";
+import { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "Blog Feed & Engineering Insights | NeuralFlow AI",
+  description: "Read technical articles, platform updates, and engineering case studies from the NeuralFlow AI development team.",
+};
 
 export default function BlogPage() {
   const posts = [

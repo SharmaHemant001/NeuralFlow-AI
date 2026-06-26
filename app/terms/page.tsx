@@ -1,8 +1,14 @@
 // FILE: app/terms/page.tsx
 
 import React from "react";
+import { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "Terms of Service | NeuralFlow AI",
+  description: "Read our platform terms of service, billing rules, license agreements, and SLA guarantees.",
+};
 
 export default function TermsPage() {
   return (
